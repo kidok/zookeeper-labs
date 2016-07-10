@@ -1,0 +1,7 @@
+## storm.yaml for single node deployment
+
+storm.zookeeper.servers:
+     - "localhost"
+
+nimbus.seeds: ["localhost"]
+storm.local.dir: "/home/ec2-user/storm-local"

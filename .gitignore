@@ -1,0 +1,13 @@
+.DS_Store
+*~
+
+# intellij
+target/
+.idea/
+*.iml
+
+# eclipse
+.classpath
+.project
+.settings/
+/nbproject/
