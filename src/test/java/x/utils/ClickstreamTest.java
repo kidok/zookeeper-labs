@@ -17,18 +17,4 @@ public class ClickstreamTest {
     assertEquals(9, tokens.length);
   }
 
-  /*
-  @Test
-  public void testJSON() {
-    String json = ClickStreamGenerator.getClickstreamAsJSON();
-    assertNotNull(json);
-    
-    Gson gson = new Gson();
-    Clickstream c = gson.fromJson(json, Clickstream.class);
-    assertNotNull(c);
-    assertNotNull(c.ip);
-    assertNotNull(c.user);
-  }
-  */
-
 }
