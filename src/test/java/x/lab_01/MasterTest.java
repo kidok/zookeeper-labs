@@ -5,6 +5,7 @@
  */
 package x.lab_01;
 
+import x.lab_03.Master;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
