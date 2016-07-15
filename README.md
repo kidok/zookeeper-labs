@@ -1,8 +1,8 @@
 <link rel='stylesheet' href='assets/css/main.css'/>
 
-Storm Labs
-==========
-Welcome to Storm labs bundle.
+ZooKeeper Labs
+==============
+Welcome to ZooKeeper labs bundle.
 
 Viewing the files:
 -----------------
@@ -37,16 +37,9 @@ We recommend using a 'programmer's editor' to view these files. These editors ha
 Labs
 ----
 
-1. Storm first project
-   - [1.1 - Importing Project](labs/1.1-import.md)
-   - [1.2 - Running Storm Topology](labs/1.2-first-storm.md)
+1. ZooKeeper start
+   - [1.1 - Installing ZooKeeper](labs/1.1-install.md)
+   - [1.2 - Importing Project](labs/1.2-import.md)   
 
-2. [Building topologies](labs/2-topology.md)
+2. [](labs/2-)
 
-3. [Complex topologies](labs/3-complex-topology.md)
-
-4. [Save results to a datastore](labs/4-persistence.md)
-
-5. [Add metrics to Storm](labs/5-metrics.md)
-
-6. [Install Storm on single node cluster](labs/6-install-single-node.md)
