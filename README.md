@@ -39,7 +39,7 @@ Labs
 
 1. ZooKeeper start
    - [1.1 - Installing ZooKeeper](labs/1.1-install.md)
-   - [1.2 - Importing Project](labs/1.2-import.md)   
+   - [1.2 - Importing ZooKeeper Labs Project](labs/1.2-import.md)   
 
 2. [](labs/2-)
 
