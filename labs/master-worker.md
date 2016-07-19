@@ -6,81 +6,64 @@ Lab: Master-worker design
 =========================
 
 ### Overview
-Run a Storm topology in local mode
+Imitate master-worker recipe with zkClil
 
 ### Depends On 
 None
 
 ### Run time
-40 mins
+30 mins
 
 
 ---------
-Step 1 :   Inspect 'src/main/java/x/lab_01/'
+Step 1:  Create the master
 ---------
-This directory has 3 files:
-* ClickstreamSpout.java
-* TupleCounterBolt.java
-* CountTopology.java
- 
----------------------------
-Step 2 :   Spout : 'src/main/java/x/lab_01/ClickstreamSpout.java'
----------------------------
-Edit the above file and fix the TODO items.  
-Here are some hints:
 
-TODO-1
-```java
-    declarer.declare(new Fields("clickstream"));
-```
-
-TODO-2
-```java
-    Values v = new Values(clickstream);
-    collector.emit(v);
-```
-
+    create -e /master "master1.example.com:2223" 
+    ls/
+    get /master
+    
+Explain the purpose of these steps
 
 ---------
-Step 3 :   Bolt : 'src/main/java/x/lab_01/TupleCounterBolt.java'
+Step 2:  Try to create another master
 ---------
-Edit the above file and fix the TODO items.  
-Here are some hints:
 
-Hint for TODO-2
-```java
-    this.counter ++;
-    LOG.debug(this.counter + " : " + tuple);
-```
+    create -e /master "master2.example.com:2223"
+    
+What happens?
 
 ---------
-Step 4 :   Topology : 'src/main/java/x/lab_01/CountTopology.java'
+Step 3:  Set a watch on master
 ---------
-Edit this file.
 
-**TODO-1 : Setup a Spout**
-```java
-    builder.setSpout("clickstream", new ClickstreamSpout());
-```
+    stat /master true
+    
+Watch what happens when the first process is deleted or expires
 
-**=> Run the topology and see what happens.**  
-Inspect the 'output console'.   
-If the program doesn't automatically terminate, 'kill it' manually.
+(Hint): You should see
 
-**TODO-2 : Setup a Bolt**
-```java
-    builder.setBolt("counter", new TupleCounterBolt());
-```
-**=> Run the topology and see what happens.**  
-Do the tuples get to bolt?  Why or why not?
+    WATCHER::
+    WatchedEvent state:SyncConnected type:NodeDeleted path:/master
+    
+Now try to acquire a master
 
-**TODO-3 : Connect Spout & Bolt**
-Connect Spout and Bolt using shuffle grouping.
-```java
-    builder.setBolt("counter", new TupleCounterBolt())
-        .shuffleGrouping("clickstream");
-```
-Now run the topology and see what happens.  
-Does the data flow from Spout --> Bolt?
+---------
+Step 4:  Create a worker
+---------
+
+    create -e /workers/worker1.example.com "worker1.example.com:2224"
+
+---------
+Step 5:  Master detects workers
+---------
+
+Find the zkCli command for the worker
+
+---------
+Step 6:  (Bonus) Add "Tasks" role
+---------
+
+Find the zkCli command for the roles
 
 ## Done
